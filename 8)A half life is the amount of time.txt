@@ -1,0 +1,54 @@
+8)A half life is the amount of time for 50% of a radioactive material to decay.
+
+After 1 half life, 50% of a material will be left.
+After 2 half lives, 25% of a material will be left.
+After 3 half lives, 12.5% of a material will be left, etc.
+
+Create a function which calculates 
+a) the remaining mass of material and 
+b) the number of years that it took for the material to decay. 
+
+You will be given:
+1) The mass of the material.
+2) The time in years for a half life to elapse.
+3) The number of half lives.
+
+
+
+
+
+
+
+
+CODE:
+
+
+public class RadioactiveDecay {
+
+    public static void main(String[] args) {
+        double initialMass = 100.0;
+        double halfLifeYears = 5.0; 
+        int numHalfLives = 3; 
+        
+        double remainingMass = calculateRemainingMass(initialMass, numHalfLives);
+        double totalTime = calculateTotalTime(halfLifeYears, numHalfLives);
+        
+        System.out.println("Remaining mass after " + numHalfLives + " half-lives: " + remainingMass + " grams");
+        System.out.println("Total time for " + numHalfLives + " half-lives: " + totalTime + " years");
+    }
+
+
+    public static double calculateRemainingMass(double initialMass, int numHalfLives) {
+        return initialMass * Math.pow(0.5, numHalfLives);
+    }
+
+  
+    public static double calculateTotalTime(double halfLifeYears, int numHalfLives) {
+        return halfLifeYears * numHalfLives;
+    }
+}
+
+
+
+Remaining mass after 3 half-lives: 12.5 grams
+Total time for 3 half-lives: 15.0 years
