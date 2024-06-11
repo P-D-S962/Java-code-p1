@@ -1,0 +1,43 @@
+
+6)At My Store
+I have few currency notes with me - few of INR 10, 50, 100 and 200. 
+I am at a store to buy an item. I saw the price of the item.
+I want a function which can tell me if I can buy this item with the notes that I have with me.
+The functional will take an array of number of notes that I have, in given order (10, 50, 100, 200) and another parameter as price of item. I am expecting the function to return "I can purchase" or "I need more money". Kindly write this function in your favorite programming lang.
+
+
+
+
+
+
+
+
+#include <stdio.h>
+
+// Function to check if the purchase can be made
+const char* canPurchase(int notes[], int price) {
+    // Denominations of the currency notes
+    int denominations[] = {10, 50, 100, 200};
+    
+    // Calculate the total money available
+    int totalMoney = 0;
+    for (int i = 0; i < 4; i++) {
+        totalMoney += notes[i] * denominations[i];
+    }
+
+    // Check if the total money is enough to buy the item
+    if (totalMoney >= price) {
+        return "I can purchase";
+    } else {
+        return "I need more money";
+    }
+}
+
+int main() {
+    int notes[] = {3, 2, 1, 1}; // Example: 3 notes of 10 INR, 2 notes of 50 INR, 1 note of 100 INR, 1 note of 200 INR
+    int price = 370; // Example: price of the item
+    
+    printf("%s\n", canPurchase(notes, price));
+    return 0;
+}
+
